@@ -1,0 +1,21 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+   #this task creates ec2 instances that are all named demo and are copies of the image specified
+   - name: Provision a set of instances
+     ec2:
+      aws_accwss_key:
+      aws_secret_key:
+      key_name: 
+      instance_type: t2.micro
+      image: 
+      region: 
+      wait: true
+      exact_count: 1
+      count_tag:
+       Name: Demo
+      instance_tags:
+       Name: Demo
+      register: ec2
